@@ -53,6 +53,7 @@ scheduler = TaskScheduler(node_count, max_capacity)
 ```
 
 3. Project tree:
+~~~
 .
 ├── notes.txt
 ├── readme.md
@@ -68,7 +69,7 @@ scheduler = TaskScheduler(node_count, max_capacity)
 │   ├── __init__.py
 │   └── test_tasks.py
 └── test_task_log.log
-
+~~~
 5. Monitor the execution progress and task logs:
 
 ```bash
