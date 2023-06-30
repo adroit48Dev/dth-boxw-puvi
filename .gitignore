@@ -1,0 +1,8 @@
+.pytest_cache
+.benchmarks
+
+Pipfile
+Pipfile.lock
+task_log.log
+test_task_log.log
+

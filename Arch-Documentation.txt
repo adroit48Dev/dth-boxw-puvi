@@ -1,0 +1,46 @@
+Design and Architecture:
+
+The solution is designed as a distributed task scheduler using FastAPI and asyncio. The architecture consists of the following components:
+
+1. Task Model: The Task model represents an individual task with attributes such as task ID, priority, dependencies, status and retries.
+
+2. TaskScheduler: The TaskScheduler class handles the scheduling of tasks. It maintains the task status, dependencies, and execution order. 
+The scheduler processes tasks asynchronously, considering their priorities and dependencies.
+
+3. FastAPI: FastAPI is used to create the web API endpoints for task scheduling and status retrieval.
+
+Handling Task Dependencies:
+To handle task dependencies, the TaskScheduler class builds a dependency graph based on the provided tasks. 
+Each task is associated with a list of its dependencies. When processing tasks, the scheduler checks if all dependencies of a task are completed before executing it. 
+This ensures that tasks are executed in the correct order, respecting their dependencies.
+
+Task Prioritization:
+Tasks are assigned priorities ranging from 1 (highest priority) to 100 (lowest priority). (Priorities can be sent through json format.)
+
+Failure Handling:
+The scheduler has a mechanism to handle task failures. If a task fails during execution, it can be retried up to a configurable limit. 
+The TaskScheduler class can track the number of retries for each task and take appropriate action until its get completed.
+
+Asyncio and Performance Improvement:
+The asyncio library is used to handle asynchronous operations and improve the performance and responsiveness of the API. 
+By leveraging asyncio, the TaskScheduler can process tasks concurrently without blocking the execution of other tasks or the API itself. 
+Asynchronous processing allows for efficient resource utilization and enables better scalability.
+
+Challenges with Asyncio:
+While asyncio provides significant benefits, it also introduces certain challenges. Some common challenges when using asyncio include:
+
+1. Debugging: Debugging asyncio-based code can be more challenging compared to synchronous code. 
+Handling exceptions and understanding the flow of execution in an asynchronous context may require additional effort.
+
+2. Resource Sharing: When multiple tasks are executing concurrently, proper management of shared resources becomes crucial. 
+
+However, asyncio in the task scheduler solution improves the performance and responsiveness of the API by allowing concurrent execution of tasks, efficient resource utilization, and better scalability. 
+It enables the system to handle a large number of tasks and concurrent requests effectively while maintaining responsiveness and performance.
+
+IMPORTANT NOTE:
+
+As this system is for testing purpose and developed with minimal functionalities. 
+It can be enhanced by implementing various features and concepts to increase the performance of the system and reliability.
+We can implement available libraries such as APScheduler, fast-api-scheduler, celery and various other tools to achieve Task Scheduling efficiently.
+Also we can think of Load-Balancing, Caching, Task Prioritization strategies, Monitoring, Authentication, Security techniques to improve the performance of the system.
+

@@ -1,0 +1,25 @@
+Problem Statement: Design a Distributed Task Scheduler with Typing Support using FastAPI and asyncio 
+Background: A common problem in distributed systems is task scheduling. This problem involves deciding when and where to run tasks while considering dependencies, priorities, resources, and other constraints. 
+Objective: Your task is to design and implement a task scheduler in Python using FastAPI for the web API and asyncio for asynchronous operations. Use Python's type hints to ensure type safety. The system should schedule tasks across a distributed system. 
+Details: 
+1. The system should consist of N nodes, and each node should be able to run M tasks at a time (both N and M should be configurable). 
+2. Tasks should have associated priorities, with 1 being the highest priority and 100 being the lowest. Tasks with higher priorities should be scheduled before tasks with lower priorities. 
+3. Tasks could have dependencies. For example, task B can only run after task A has successfully completed. You will need to handle these dependencies when scheduling tasks. 
+4. The scheduler should be able to handle failures. If a task fails, it should be retried up to X times ( X should be configurable). 
+5. Implement an API endpoint /schedule that takes a JSON array of tasks and schedules them across the distributed system. The JSON for each task should look like this: 
+{ 
+"Task_id" : "123", 
+"priority": 1, 
+"dependencies": ["456", "789"] 
+} 
+This endpoint should process tasks asynchronously using the asyncio package. 
+6. Implement an API endpoint /status that takes a task ID and returns the status of the task (e.g., "not started", "running", "completed", "failed"). Type hinting: 
+Use Python's typing module to add type hints to all function signatures. 
+Task id should be a string. 
+Priority should be an integer. 
+Dependencies should be a list of strings. 
+You should also define a custom type for task status. 
+Deliverable: 
+1. Python code that implements the task scheduler and API endpoints described above using FastAPI and asyncio. The code should include type hints. 
+2. A document describing the design and architecture of your solution, including how you handle task dependencies, task prioritization, and failures. Discuss how the asyncio library improves the performance and responsiveness of your API, and describe any challenges you faced when using asyncio. 
+3. Test cases demonstrating how your solution works and how it handles edge cases.

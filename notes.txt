@@ -1,0 +1,53 @@
+Requirements for Distributed Task Scheduler
+
+Functional Requirements
+1. Should consit of N nodes and each node should be able to run M tasks (Both should be configurable)
+2. Should have priorities from 1 (Highest) to 100 (Lowest)
+3. Should support dependencies. 
+4. Should handle failures. Task retries should be included.
+5. Implement API endpoint /schedule should schedule tasks across the distributed system.
+6. Implement API endpoint /status -> should return the status of the task_id
+
+
+Non-Functional Requirements
+1. Performance: The system should be able to handle a large number of tasks and provide efficient task scheduling and execution.
+2. Type Safety: The codebase should utilize Python's type hints to ensure type safety and reduce potential runtime errors.
+3. Reliability: The system should be resilient to failures, ensuring high availability and fault tolerance.
+
+Notes:
+
+{ 
+"Task_id" : "123", 
+"priority": 1, 
+"dependencies": ["456", "789"] 
+} 
+This endpoint should process tasks asynchronously using the asyncio package. 
+
+Task id should be a string. 
+Priority should be an integer. 
+Dependencies should be a list of strings. 
+You should also define a custom type for task status. 
+
+[
+  {
+    "task_id": "11",
+    "priority": 1,
+    "dependencies": [ "12"
+      
+    ]
+   },
+{
+    "task_id": "12",
+    "priority": 2,
+    "dependencies": [
+      "230"
+    ]
+   },
+{
+    "task_id": "230",
+    "priority": 2,
+    "dependencies": [
+      
+    ]
+   }
+]
